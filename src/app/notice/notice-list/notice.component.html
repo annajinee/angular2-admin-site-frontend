@@ -1,0 +1,65 @@
+<section id="content" style="margin-top: 2%">
+
+  <div class="container">
+    <div class="card-header" style="margin-bottom: 2%">
+      <h2>공지사항</h2>
+    </div>
+    <div class="card">
+      <form (ngSubmit)="getNotice(page)">
+        <div align="right" *ngIf="admin" style="padding: 1%">
+          <button *ngIf="admin" class="btn btn-default hec-button" [routerLink]="['/notice/add']"><i
+            class="zmdi zmdi-edit">&nbsp;글쓰기</i></button>
+          <button *ngIf="admin" class="btn btn-info" [routerLink]="['/register']"><i class="zmdi zmdi-account-add"> 사용자
+            등록</i></button>
+        </div>
+        <div class="card-body" style="padding: 5%">
+          <table class="table table-condensed table-hover">
+            <!--로딩중 -->
+            <p *ngIf="loading" style="text-align: center; align-content: center; margin: 20%">
+              로딩중입니다 잠시만 기다려 주세요 .. &nbsp;&nbsp;&nbsp;
+              <img *ngIf="loading"
+                   src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/>
+            </p>
+            <!-- -->
+            <thead *ngIf="!loading">
+            <tr>
+              <th width="10%" style="color: #418c97; font-weight: bold">번호</th>
+              <th width="60%" style="color: #418c97; font-weight: bold">제목</th>
+              <th width="10%" style="color: #418c97; font-weight: bold">등록일</th>
+            </tr>
+            </thead>
+            <tbody *ngIf="!loading">
+            <tr *ngFor="let notice of notices" style="cursor: hand" (click)="gotoDetail(notice)">
+              <td>{{ notice.id }}</td>
+              <td>{{ notice.title }}</td>
+              <td>{{ notice.regdate | slice:0:10 }}</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </form>
+      <pagination [total]="total$ | async" [page]="page" (goTo)="getNotice($event)"></pagination>
+    </div>
+    <div class="card" style="margin-top: 7%" align="center">
+      <img src="http://www.hochicken.co.kr/files/attach/images/878/431/001/2b0229507e2bbbf95439447aa8f9d047.jpg"
+           align="center" style="vertical-align: middle; padding: 10%">
+    </div>
+  </div>
+
+  <div class="text-center" align="center" style="vertical-align: middle;">
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <p class="list-inline text-center" align="center" style="vertical-align: middle; color:#999999">
+              ⓒ Sweettracker Corp. All Rights Reserved.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+</section>
+
+
+

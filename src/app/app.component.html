@@ -1,0 +1,79 @@
+<nav class="navbar navbar-default navbar-static-top">
+  <header id="header" class="clearfix">
+    <ul class="h-inner">
+      <li class="hi-trigger ma-trigger" data-ma-action="sidebar-open" data-ma-target="#sidebar">
+        <div class="line-wrap">
+          <div class="line top"></div>
+          <div class="line center"></div>
+          <div class="line bottom"></div>
+        </div>
+      </li>
+      <li class="hidden-xs" style="margin-top:10px; font-size: 15px">
+        <a href="/" style="color: #ffffff">배송연동 Admin</a>
+      </li>
+      <li class="pull-right">
+        <ul class="hi-menu">
+          <ul class="nav navbar-nav navbar-right">
+            <!--<li *ngIf="!isSignedIn">-->
+              <!--<a [routerLink]="['/login']">로그인</a>-->
+            <!--</li>-->
+            <li *ngIf="isSignedIn">
+              <a style="color: white;" *ngIf="username"> 반갑습니다 {{username}} 님 </a>
+            </li>
+            <li *ngIf="isSignedIn">
+              <a href="#" (click)="logout(); $event.preventDefault()" style="color: #00A0B0; font-weight: bold">로그아웃</a>
+            </li>
+          </ul>
+        </ul>
+      </li>
+    </ul>
+  </header>
+</nav>
+
+
+<aside *ngIf="isSignedIn" id="sidebar" class="sidebar c-overflow">
+  <ul class="main-menu">
+
+    <li [routerLinkActive]="['active']">
+      <a [routerLink]="['/home']"><i class="zmdi zmdi-home"></i> 홈</a>
+    </li>
+    <li class="sub-menu" [routerLinkActive]="['active']">
+      <a href="" data-ma-action="submenu-toggle"><i class="zmdi zmdi-view-list"></i> 조회</a>
+
+      <ul>
+        <li><a [routerLink]="['/invoice/delivered']" [routerLinkActive]="['active']">배송 조회</a></li>
+        <li><a [routerLink]="['/invoice/notdelivered']" [routerLinkActive]="['active']">미배송 조회</a></li>
+      </ul>
+    </li>
+
+    <li class="sub-menu" [routerLinkActive]="['active']">
+      <a href="" data-ma-action="submenu-toggle"><i class="zmdi zmdi-trending-up"></i> 통계</a>
+      <ul>
+        <li><a [routerLink]="['/static/tracking']" [routerLinkActive]="['active']">추적건수 통계</a></li>
+        <li><a [routerLink]="['/static/delivered']" [routerLinkActive]="['active']">배송율 통계</a></li>
+        <li><a [routerLink]="['/static/notdelivered']" [routerLinkActive]="['active']">미배송건수 통계</a></li>
+      </ul>
+    </li>
+  </ul>
+</aside>
+<alert></alert>
+
+
+<!--<section id="content" style="margin-top: 2%">-->
+  <router-outlet></router-outlet>
+  <!--<div class="text-center" align="center" style="vertical-align: middle;">-->
+    <!--<footer *ngIf="isSignedIn">-->
+      <!--<div class="container">-->
+        <!--<div class="row">-->
+          <!--<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">-->
+            <!--<p class="list-inline text-center" align="center" style="vertical-align: middle; color:#999999">-->
+              <!--ⓒ Sweettracker Corp. All Rights Reserved.-->
+            <!--</p>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</footer>-->
+  <!--</div>-->
+<!--</section>-->
+
+

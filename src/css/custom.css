@@ -1,0 +1,52 @@
+.font-black {
+  color: #0D0A0A; !important;
+}
+
+
+
+.color-reverse{
+  background-color: #ddd !important;
+  color: #0D0A0A; !important;
+}
+
+/* placeholder 색상*/
+
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+  color:    #0D0A0A;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+  color:    #0D0A0A;
+  opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+  color:    #0D0A0A;
+  opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color:    #0D0A0A;
+}
+
+ .bootstrap-datetimepicker-widget.dropdown-menu.bottom {
+   width: auto !important;
+ }
+
+.bootstrap-datetimepicker-widget thead .picker-switch {
+  cursor: default;
+  pointer-events: none;
+}
+.bootstrap-datetimepicker-widget .timepicker-hour,
+.bootstrap-datetimepicker-widget .timepicker-minute,
+.bootstrap-datetimepicker-widget .timepicker-second{
+  cursor: default;
+  pointer-events: none;
+}
+
+
+.centered { width: 400px; position: absolute; left: 50%; margin-left: -200px; }
+
+.chart-container{
+  position: absolute;
+}
+.line-breaker {
+  white-space: pre-wrap;
+}
